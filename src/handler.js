@@ -1,5 +1,6 @@
 const { nanoid } = require('nanoid');
 const books = require('./books');
+const books = require('./books');
 
 const addBookHandler = (request, h) => {
   const {
@@ -68,9 +69,12 @@ const addBookHandler = (request, h) => {
   return response;
 };
 
-const getAllBooksHandler = () => {
-
-};
+const getAllBooksHandler = () => ({
+  status: 'success',
+  data: {
+    books: books.length === 0 ? [] : books.map((book) => ({ id: book.id, name: book.name, publisher: book.publisher })),
+  }
+});
 
 const getBookByIdHandler = (request, h) => {
 
