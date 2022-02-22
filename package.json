@@ -1,0 +1,29 @@
+{
+  "name": "bookshelf-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/almaduri/dicoding-bookshelf-api.git"
+  },
+  "author": "Mohammad Ali Al Maduri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/almaduri/dicoding-bookshelf-api/issues"
+  },
+  "homepage": "https://github.com/almaduri/dicoding-bookshelf-api#readme",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.1",
+    "nanoid": "^3.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "nodemon": "^2.0.15"
+  }
+}
