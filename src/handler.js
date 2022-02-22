@@ -1,6 +1,5 @@
 const { nanoid } = require('nanoid');
 const books = require('./books');
-const books = require('./books');
 
 const addBookHandler = (request, h) => {
   const {
@@ -72,12 +71,33 @@ const addBookHandler = (request, h) => {
 const getAllBooksHandler = () => ({
   status: 'success',
   data: {
+    // eslint-disable-next-line max-len
     books: books.length === 0 ? [] : books.map((book) => ({ id: book.id, name: book.name, publisher: book.publisher })),
-  }
+  },
 });
 
 const getBookByIdHandler = (request, h) => {
+  const { bookId } = request.params;
 
+  const book = books.filter((b) => b.id === bookId)[0];
+
+  if (book !== undefined) {
+    const response = h.responseo({
+      status: 'success',
+      data: {
+        book,
+      },
+    });
+    response.code(200);
+    return response;
+  }
+
+  const response = h.response({
+    status: 'fail',
+    message: 'Buku tidak ditemukan',
+  });
+  response.code(404);
+  return response;
 };
 
 const editBookByIdHandler = (request, h) => {
